@@ -14,4 +14,24 @@ class SomeServiceTest {
     }
 
 
+    @Test
+    void testReturnFizz() {
+        assertThat(someService.fizzBuzz(3)).isEqualTo("Fizz");
+    }
+
+    @Test
+    void testReturnBuzz() {
+        assertThat(someService.fizzBuzz(5)).isEqualTo("Buzz");
+    }
+
+    @Test
+    void testReturnFizzBuzz() {
+        assertThat(someService.fizzBuzz(15)).isEqualTo("FizzBuzz");
+    }
+
+    @Test
+    void testReturnEcho() {
+        assertThat(someService.fizzBuzz(14)).isEqualTo("" + 14);
+    }
+
 }

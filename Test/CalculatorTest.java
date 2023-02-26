@@ -104,6 +104,6 @@ public class CalculatorTest {
     void computeLengthCircle() {
         Calculator calculator = new Calculator();
         assertThat(calculator.computeLengthCircle(10)).isEqualTo(62.83185307179586);
-        assertTrue(Math.abs(62-calculator.computeLengthCircle(10)) < 1);
+        assertTrue(Math.abs(62 - calculator.computeLengthCircle(10)) < 1);
     }
 }
