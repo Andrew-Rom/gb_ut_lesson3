@@ -13,7 +13,7 @@ public class UserTest {
      */
     @Test
     void userCreationTrue() {
-        User user = new User("userLogin", "userPass");
+        User user = new User("userLogin", "userPass", false);
         String login = "userLogin";
         String pass = "userPass";
         assertTrue(user.isAuthenticate(login, pass));
@@ -21,7 +21,7 @@ public class UserTest {
 
     @Test
     void userCreationFail() {
-        User user = new User("userLogin", "userPass");
+        User user = new User("userLogin", "userPass", false);
         String login = "userLogin1";
         String pass = "userPass1";
         assertFalse(user.isAuthenticate(login, pass));
@@ -37,7 +37,7 @@ public class UserTest {
 
     @Test
     void testIsValidAddUser() {
-        User user = new User("userLogin", "userPass");
+        User user = new User("userLogin", "userPass", false);
         UserRepository repository = new UserRepository();
         repository.addUser(user);
         assertTrue(repository.getUsers().contains(user));
@@ -45,11 +45,37 @@ public class UserTest {
 
     @Test
     void testIsInvalidAddUser() {
-        User user1 = new User("userLogin", "userPass");
-        User user2 = new User("userLogin2", "userPass2");
+        User user1 = new User("userLogin", "userPass", false);
+        User user2 = new User("userLogin2", "userPass2", false);
         UserRepository repository = new UserRepository();
         repository.addUser(user1);
         assertFalse(repository.getUsers().contains(user2));
+    }
+
+    @Test
+    void testCorrectLogout() {
+        User user1 = new User("userLogin1", "userPass1", false);
+        User user2 = new User("userLogin2", "userPass2", true);
+        User user3 = new User("userLogin3", "userPass3", false);
+        UserRepository repository = new UserRepository();
+        repository.addUser(user1);
+        repository.addUser(user2);
+        repository.addUser(user3);
+        repository.logoutExceptAdmin();
+        assertTrue(repository.getUsers().contains(user2));
+    }
+
+    @Test
+    void testIncorrectLogout() {
+        User user1 = new User("userLogin1", "userPass1", false);
+        User user2 = new User("userLogin2", "userPass2", true);
+        User user3 = new User("userLogin3", "userPass3", false);
+        UserRepository repository = new UserRepository();
+        repository.addUser(user1);
+        repository.addUser(user2);
+        repository.addUser(user3);
+        repository.logoutExceptAdmin();
+        assertFalse(repository.getUsers().contains(user1));
     }
 
 }

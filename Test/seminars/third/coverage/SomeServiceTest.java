@@ -131,7 +131,4 @@ class SomeServiceTest {
         assertFalse(someService.evenOddNumber(1));
     }
 
-
-
-
 }

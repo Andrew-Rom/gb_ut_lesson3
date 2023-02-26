@@ -17,6 +17,8 @@ public class UserRepository {
         return users;
     }
 
-
+    public void logoutExceptAdmin() {
+        users.removeIf(user -> !user.getIsAdmin());
+    }
 
 }
