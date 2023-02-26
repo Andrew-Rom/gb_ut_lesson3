@@ -39,13 +39,11 @@ class SomeServiceTest {
     @Test
     void testFirstSixElement() {
         assertTrue(someService.firstLast6(new int[]{6, 1, 2, 3}));
-
     }
 
     @Test
     void testLastSixElement() {
         assertTrue(someService.firstLast6(new int[]{1, 2, 3, 6}));
-
     }
 
     @Test
