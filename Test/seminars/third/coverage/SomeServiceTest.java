@@ -37,6 +37,7 @@ class SomeServiceTest {
         assertThat(someService.fizzBuzz(14)).isEqualTo("" + 14);
     }
 
+
     @Test
     void testFirstSixElement() {
         assertTrue(someService.firstLast6(new int[]{6, 1, 2, 3}));
@@ -52,6 +53,7 @@ class SomeServiceTest {
         assertFalse(someService.firstLast6(new int[]{1, 2, 3}));
     }
 
+
     @Test
     void testCorrectCalculationDiscount() {
         assertThat(someService.calculatingDiscount(100.0, 10)).isEqualTo(90.0);
@@ -60,6 +62,11 @@ class SomeServiceTest {
     @Test
     void testCorrectCalculationZeroDiscount() {
         assertThat(someService.calculatingDiscount(100.0, 0)).isEqualTo(100.0);
+    }
+
+    @Test
+    void testCorrectCalculationFreeSale() {
+        assertThat(someService.calculatingDiscount(100.0, 100)).isEqualTo(0);
     }
 
     @ParameterizedTest
