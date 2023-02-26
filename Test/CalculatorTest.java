@@ -101,5 +101,9 @@ public class CalculatorTest {
     //HW3.1L: Попробуйте реализовать в калькуляторе с помощью методологии TDD (с описанием шагов) функцию расчета длины окружности
     // P=2πR (Для окружности с радиусом 10 длина окружности = 62.83185307179586)
     @Test
-    void computeLengthCircle() {}
+    void computeLengthCircle() {
+        Calculator calculator = new Calculator();
+        assertThat(calculator.computeLengthCircle(10)).isEqualTo(62.83185307179586);
+        assertTrue(Math.abs(62-calculator.computeLengthCircle(10)) < 1);
+    }
 }

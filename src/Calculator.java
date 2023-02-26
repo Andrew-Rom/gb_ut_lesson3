@@ -124,7 +124,18 @@ public class Calculator {
         return Math.PI * radius * radius;
     }
 
-    //HW3.1L: Попробуйте реализовать в калькуляторе с помощью методологии TDD (с описанием шагов) функцию расчета длины окружности
-    // P=2πR
+
+    /**
+     * HW3.1L:
+     * Попробуйте реализовать в калькуляторе с помощью методологии TDD (с описанием шагов) функцию расчета длины окружности
+     * P=2πR
+     *
+     * @param i
+     * @return
+     */
+
+    public Double computeLengthCircle(int i) {
+        return 2*Math.PI*i;
+    }
 
 }
