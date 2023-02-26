@@ -13,6 +13,10 @@ public class UserTest {
      */
     @Test
     void userCreation() {
+        User user = new User("userLogin", "userPass");
+        String login = "userLogin";
+        String pass = "userPass";
+        assertTrue(user.auth(login, pass));
     }
 
 
