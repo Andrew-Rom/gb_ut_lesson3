@@ -12,6 +12,6 @@ public class User {
     }
 
     public boolean auth(String login, String pass) {
-        return (login.equals(name) && password.equals(pass));
+        return (login.equals(this.name) && pass.equals(this.password));
     }
 }
