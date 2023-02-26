@@ -7,7 +7,7 @@ public class UserRepository {
 
     public List<User> users = new ArrayList<>();
 
-    public void addUser (User user) {
+    public void addUser(User user) {
         if (user.isAuthenticate(user.name, user.password)) {
             users.add(user);
         }
