@@ -88,6 +88,7 @@ class SomeServiceTest {
         assertEquals(expectedMessage, actualMessage);
     }
 
+
     @Test
     void testLuckySumA() {
         assertThat(someService.luckySum(13, 2, 5)).isEqualTo(2 + 5);
