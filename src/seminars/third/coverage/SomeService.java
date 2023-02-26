@@ -30,26 +30,26 @@ public class SomeService {
         }
     }
 
-//    /**
-//     * 3.3. Метод подсчета скидки
-//     */
-//    public double calculatingDiscount(double purchaseAmount, int discountAmount) {
-//        // purchaseAmount - сумма покупки
-//        // discountAmount - размер скидки
-//        double discountedAmount = 0; // Сумма со скидкой (первоначальная сумма - скидка%)
-//        if (purchaseAmount >= 0) {
-//            if (discountAmount >= 0 && discountAmount <= 100) {
-//                discountedAmount = purchaseAmount - (purchaseAmount * discountAmount) / 100;
-//            } else {
-//                throw new ArithmeticException("Скидка должна быть в диапазоне от 0 до 100%");
-//            }
-//        } else {
-//            // Сумма покупки не может быть отрицательной
-//            throw new ArithmeticException("Сумма покупки не может быть отрицательной");
-//        }
-//        return discountedAmount; // Метод должен возвращать сумму покупки со скидкой
-//    }
-//
+    /**
+     * 3.3. Метод подсчета скидки
+     */
+    public double calculatingDiscount(double purchaseAmount, int discountAmount) {
+        // purchaseAmount - сумма покупки
+        // discountAmount - размер скидки
+        double discountedAmount = 0; // Сумма со скидкой (первоначальная сумма - скидка%)
+        if (purchaseAmount >= 0) {
+            if (discountAmount >= 0 && discountAmount <= 100) {
+                discountedAmount = purchaseAmount - (purchaseAmount * discountAmount) / 100;
+            } else {
+                throw new ArithmeticException("Скидка должна быть в диапазоне от 0 до 100%");
+            }
+        } else {
+            // Сумма покупки не может быть отрицательной
+            throw new ArithmeticException("Сумма покупки не может быть отрицательной");
+        }
+        return discountedAmount; // Метод должен возвращать сумму покупки со скидкой
+    }
+
 //    /**
 //     * 3.4. Метод принимает на вход 3 числа (int a, b, c). Нужно вернуть их сумму. Однако, если одно из значений равно 13,
 //     * то оно не учитывается в сумме. Так, например, если b равно 13, то считается сумма только a и c.

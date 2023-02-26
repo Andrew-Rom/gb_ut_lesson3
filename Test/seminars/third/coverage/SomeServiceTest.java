@@ -2,10 +2,11 @@ package seminars.third.coverage;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class SomeServiceTest {
     private SomeService someService;
@@ -50,5 +51,35 @@ class SomeServiceTest {
     void testFirstLastNoSixElement() {
         assertFalse(someService.firstLast6(new int[]{1, 2, 3}));
     }
+
+    @Test
+    void testCorrectCalculationDiscount() {
+        assertThat(someService.calculatingDiscount(100.0, 10)).isEqualTo(90.0);
+    }
+
+    @Test
+    void testCorrectCalculationZeroDiscount() {
+        assertThat(someService.calculatingDiscount(100.0, 0)).isEqualTo(100.0);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {101, -1})
+    void testIsValidDiscountAmount(int i) {
+        ArithmeticException exception = assertThrows(ArithmeticException.class, () ->
+                someService.calculatingDiscount(100, i));
+        String expectedMessage = "Скидка должна быть в диапазоне от 0 до 100%";
+        String actualMessage = exception.getMessage();
+        assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
+    void testIsValidPurchaseAmount() {
+        ArithmeticException exception = assertThrows(ArithmeticException.class, () ->
+                someService.calculatingDiscount(-1.0, 0));
+        String expectedMessage = "Сумма покупки не может быть отрицательной";
+        String actualMessage = exception.getMessage();
+        assertEquals(expectedMessage, actualMessage);
+    }
+
 
 }
