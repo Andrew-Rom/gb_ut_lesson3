@@ -12,11 +12,19 @@ public class UserTest {
      * (В метод передаются логин и пароль, метод возвращает true, если пароль и логин совпадают, иначе - false)
      */
     @Test
-    void userCreation() {
+    void userCreationTrue() {
         User user = new User("userLogin", "userPass");
         String login = "userLogin";
         String pass = "userPass";
         assertTrue(user.auth(login, pass));
+    }
+
+    @Test
+    void userCreationFail() {
+        User user = new User("userLogin", "userPass");
+        String login = "userLogin1";
+        String pass = "userPass1";
+        assertFalse(user.auth(login, pass));
     }
 
 
