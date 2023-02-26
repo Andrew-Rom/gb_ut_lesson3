@@ -10,7 +10,23 @@ public class TestDrivenDevelopment {
      * Нужно написать (TDD) класс MoodAnalyser, который оценивает фразы по настроению
      */
     @Test
-    void testMoodAnalysis() {
+    void testMoodAnalysisHappy() {
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
+        String str = "хорошее настроение";
+        assertThat(moodAnalyser.analyze(str)).isEqualTo("happy");
     }
 
+    @Test
+    void testMoodAnalysisSad() {
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
+        String str = "плохое настроение";
+        assertThat(moodAnalyser.analyze(str)).isEqualTo("sad");
+    }
+
+    @Test
+    void testMoodAnalysisMedium() {
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
+        String str = "нейтральное настроение";
+        assertThat(moodAnalyser.analyze(str)).isEqualTo("So so");
+    }
 }
