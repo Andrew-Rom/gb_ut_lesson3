@@ -67,6 +67,7 @@ public class SomeService {
         }
     }
 
+
     /**
      * HW 3_2 <br>
      * Нужно покрыть тестами метод на 100%.
