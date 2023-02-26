@@ -81,5 +81,4 @@ class SomeServiceTest {
         assertEquals(expectedMessage, actualMessage);
     }
 
-
 }
