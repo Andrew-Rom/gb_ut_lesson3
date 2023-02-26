@@ -54,6 +54,11 @@ class SomeServiceTest {
     }
 
 
+    /**
+     * HW 3_1 <br>
+     * Разбить большой метод под номером 3 и проверить покрытие(должно быть 100%)
+     */
+
     @Test
     void testCorrectCalculationDiscount() {
         assertThat(someService.calculatingDiscount(100.0, 10)).isEqualTo(90.0);
@@ -108,4 +113,25 @@ class SomeServiceTest {
     void testLuckySumNot13() {
         assertThat(someService.luckySum(1, 2, 5)).isEqualTo(1 + 2 + 5);
     }
+
+
+    /**
+     * HW 3_2 <br>
+     * Нужно покрыть тестами метод на 100%.
+     * Метод проверяет, является ли целое число записанное в переменную n, чётным (true) либо нечётным (false)
+     */
+
+    @Test
+    void testIsEven() {
+        assertTrue(someService.evenOddNumber(2));
+    }
+
+    @Test
+    void testIsOdd() {
+        assertFalse(someService.evenOddNumber(1));
+    }
+
+
+
+
 }
